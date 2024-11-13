@@ -1,4 +1,3 @@
-```markdown
 # FER_ELIM Project Guide
 
 ## 1. Introduction
