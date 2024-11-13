@@ -74,8 +74,8 @@ The `run.sh` script will execute `main.py` with preset arguments and begin the t
 ---
 
 ## 7. Contact
-For questions or issues with the project, please contact the project manager.
-```
+For questions or issues with the project, please contact the project manager via email: hoangquan5824@gmail.com
+---
 
 ### Additional Explanation
 
