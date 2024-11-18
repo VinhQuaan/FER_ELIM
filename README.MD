@@ -32,7 +32,7 @@ python preprocessing.py
 ```
 
 ### Note:
-- `preprocessing.py` will automatically load data from the specified directory and save the processed results to a CSV file (`training.csv`) for later use.
+- `preprocessing.py` will automatically load data from the specified directory and save the processed results to a CSV file (`train.csv`) for later use.
 
 ---
 
@@ -40,14 +40,14 @@ python preprocessing.py
 
 ### Step 3: Run `split_dataset.py`
 
-Next, run `split_dataset.py` to split the data in `training.csv` into training and validation sets:
+Next, run `split_dataset.py` to split the data in `train.csv` into training and validation sets:
 
 ```bash
 python split_dataset.py
 ```
 
 ### Note:
-- The training and validation sets will be saved as `train.csv` and `validation.csv`, preparing them for model training.
+- The training and validation sets will be saved as `training.csv` and `validation.csv`, preparing them for model training.
 
 ---
 
