@@ -1,4 +1,8 @@
 <!-- Link github: https://github.com/VinhQuaan/FER_ELIM -->
+<!-- In the setting.json file on VS code, add the following line: -->
+<!-- "python.terminal.executeInFileDir": true-->
+<!-- With this setting enabled, whenever you run a Python script, the terminal automatically changes its working directory to the folder containing the script.-->
+
 # FER_ELIM Project Guide
 
 ## 1. Introduction
