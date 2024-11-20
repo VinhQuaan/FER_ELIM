@@ -4,3 +4,13 @@ torchvision
 fabulous
 wandb
 pretrainedmodels
+einops
+numpy
+matplotlib
+PIL
+ml_collections
+pandas
+emoji
+facenet-pytorch
+opencv-pytnon
+imageio
