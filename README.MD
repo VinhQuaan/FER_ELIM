@@ -1,3 +1,4 @@
+<!-- Link github: https://github.com/VinhQuaan/FER_ELIM -->
 # FER_ELIM Project Guide
 
 ## 1. Introduction
