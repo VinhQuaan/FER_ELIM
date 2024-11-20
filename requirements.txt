@@ -7,7 +7,7 @@ pretrainedmodels
 einops
 numpy
 matplotlib
-PIL
+Pillow
 ml_collections
 pandas
 emoji
