@@ -12,5 +12,5 @@ ml_collections
 pandas
 emoji
 facenet-pytorch
-opencv-pytnon
+opencv-python
 imageio
