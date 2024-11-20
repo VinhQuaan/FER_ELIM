@@ -147,5 +147,5 @@ if __name__ == "__main__":
 
     from pytorch_model_summary import summary
     print(fg256("cyan", summary(Encoder_AL(), torch.ones_like(torch.empty(1, 3, 255, 255)).cuda(), show_input=True)))
-    # print(fg256("orange", summary(Regressor_Alex(), torch.ones_like(torch.empty(1, 256, 6, 6)), show_input=True)))
+    print(fg256("orange", summary(Regressor_AL(), torch.ones_like(torch.empty(1, 256, 6, 6)), show_input=True)))
     print(fg256("yellow", "ERM_FC", summary(ERM_FC(64, 2), torch.ones_like(torch.empty(10, 64)), show_input=True)))
