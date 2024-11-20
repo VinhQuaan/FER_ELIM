@@ -1,46 +1,40 @@
 import csv
 import random
 
-data_path = "<YOUR_DATA_PATH>"
-
-# Đường dẫn tới tệp CSV gốc và các tệp đầu ra
+# Paths to the original CSV file and the output files
 original_csv = './AFEW-VA/train.csv'
 train_csv = './AFEW-VA/training.csv'
 val_csv = './AFEW-VA/validation.csv'
 
-# Tỷ lệ chia dữ liệu
-train_ratio = 0.8  # 80% cho training, 20% cho validation
+# Data split ratio
+train_ratio = 0.8  # 80% for training, 20% for validation
 
-# Đọc dữ liệu từ tệp CSV gốc
+# Read data from the original CSV file
 with open(original_csv, 'r') as file:
     reader = list(csv.reader(file))
-    header = reader[0]  # Lấy tiêu đề
-    data = reader[1:]  # Lấy dữ liệu bỏ qua tiêu đề
+    header = reader[0]  # Extract the header
+    data = reader[1:]  # Extract data excluding the header
 
-# Thêm "AFEW-VA/" vào trước mỗi giá trị trong cột "subDirectory_filePath"
-for row in data:
-    row[0] = data_path + row[0]
-
-# Xáo trộn dữ liệu ngẫu nhiên
+# Shuffle data randomly
 random.shuffle(data)
 
-# Tính số lượng mẫu cho tập huấn luyện
+# Calculate the number of samples for the training set
 train_size = int(len(data) * train_ratio)
 
-# Chia dữ liệu thành hai tập
+# Split data into training and validation sets
 train_data = data[:train_size]
 val_data = data[train_size:]
 
-# Lưu tập training vào tệp CSV
+# Save the training set to a CSV file
 with open(train_csv, 'w', newline='') as file:
     writer = csv.writer(file, quoting=csv.QUOTE_ALL)
-    writer.writerow(header)  # Ghi tiêu đề
-    writer.writerows(train_data)  # Ghi dữ liệu
+    writer.writerow(header)  # Write the header
+    writer.writerows(train_data)  # Write the training data
 
-# Lưu tập validation vào tệp CSV
+# Save the validation set to a CSV file
 with open(val_csv, 'w', newline='') as file:
     writer = csv.writer(file, quoting=csv.QUOTE_ALL)
-    writer.writerow(header)  # Ghi tiêu đề
-    writer.writerows(val_data)  # Ghi dữ liệu
+    writer.writerow(header)  # Write the header
+    writer.writerows(val_data)  # Write the validation data
 
-print(f"Đã chia dữ liệu thành công! Tệp training.csv và validation.csv đã được tạo.")
+print(f"Data successfully split! training.csv and validation.csv have been created.")

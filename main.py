@@ -364,7 +364,7 @@ if __name__ == "__main__":
     validation_path = './AFEW-VA/validation.csv'
 
     face_dataset = FaceDataset(csv_file=training_path,
-                               root_dir='/',
+                               root_dir='./AFEW-VA/',
                                transform=transforms.Compose([
                                    transforms.Resize(256), transforms.RandomCrop(size=224),
                                    transforms.ColorJitter(),
@@ -374,7 +374,7 @@ if __name__ == "__main__":
                                ]), inFolder=None)
 
     face_dataset_val = FaceDataset(csv_file=validation_path,
-                               root_dir='/',
+                               root_dir='./AFEW-VA/',
                                transform=transforms.Compose([
                                    transforms.Resize(256), transforms.CenterCrop(size=224),
                                    transforms.ToTensor(),
@@ -394,9 +394,9 @@ if __name__ == "__main__":
     #------------------
     # Load pretrained w
     #------------------
-    encoder.load_state_dict(torch.load('/weights/enc2.t7'), strict=False)
-    regressor.load_state_dict(torch.load('/weights/reg2.t7'), strict=False)
-    ERM_FC.load_state_dict(torch.load('/weights/header2.t7'), strict=False)
+    encoder.load_state_dict(torch.load('./weights/enc2.t7'), strict=False)
+    regressor.load_state_dict(torch.load('./weights/reg2.t7'), strict=False)
+    ERM_FC.load_state_dict(torch.load('./weights/header2.t7'), strict=False)
 
     #------------------
     # Optimizer setting
