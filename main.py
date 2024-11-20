@@ -91,14 +91,16 @@ def model_training(args, model, optimizer, scheduler, loaders, current):
     MSE = nn.MSELoss()
     cos = nn.CosineSimilarity(dim=1, eps=1e-6)
     layer_norm = nn.LayerNorm(args.latent_dim, elementwise_affine=False).cuda()
-
+    loss = 0.0
     for epoch in range(args.num_epochs):
         print('\nepoch ' + str(epoch) + '/' + str(args.num_epochs-1))
 
-        epoch_iterator = tqdm(loaders['train'],
-                              desc="Training (X / X Steps) (loss=X.X)",
-                              bar_format="{l_bar}{r_bar}",
-                              dynamic_ncols=True)
+        epoch_iterator = tqdm(
+                            loaders['train'],
+                            desc="Training (loss={:.4f})".format(loss),
+                            bar_format="{desc:<25}{bar:30} {percentage:3.0f}% {r_bar}",
+                            dynamic_ncols=True
+                        )
         
         for _, batch in enumerate(epoch_iterator):
             

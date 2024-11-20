@@ -8,12 +8,28 @@ import pretrainedmodels.utils as utils
 
 from fabulous.color import fg256
 
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
 #alexnet = pretrainedmodels.__dict__['alexnet'](num_classes=1000, pretrained=None).cuda()
 #resnet  = pretrainedmodels.__dict__['resnet18'](num_classes=1000, pretrained=None).cuda()
 alexnet = pretrainedmodels.__dict__['alexnet'](num_classes=1000, pretrained='imagenet').cuda()
 resnet  = pretrainedmodels.__dict__['resnet18'](num_classes=1000, pretrained='imagenet').cuda()
 print(fg256("green", 'Successfully loaded INet weights.'))
 
+def get_encoder():
+    return Encoder_AL()
+
+def get_regressor():
+    return Regressor_AL(64)
+
+def get_task_header():
+    return ERM_FC(64, 2)
+
+def nn_output():
+    encoder2 = get_encoder().to(device)
+    regressor2 = get_regressor().to(device)
+    task_header2 = get_task_header().to(device)
+    return encoder2, regressor2, task_header2
 
 class Encoder_AL(nn.Module):
     def __init__(self):
