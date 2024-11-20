@@ -64,7 +64,7 @@ python split_dataset.py
 Finally, you can start training the model by running the `run.sh` script:
 
 ```bash
-
+chmod +x ./run.sh
 ./run.sh
 ```
 
