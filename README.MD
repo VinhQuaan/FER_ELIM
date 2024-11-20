@@ -11,6 +11,7 @@ This project performs emotion analysis from image data. Below are the steps to s
 ### Requirements
 - Python 3.8 or higher
 - CUDA (if you want to use GPU acceleration for training)
+- Ubuntu 20.04 or higher
 
 ### Step 1: Install Dependencies from `requirements.txt`
 
@@ -66,7 +67,18 @@ The `run.sh` script will execute `main.py` with preset arguments and begin the t
 
 ---
 
-## 6. Additional Notes
+## 6. Demo
+
+### Run `demo.py`
+
+Real-time demo with pre-trained weights
+
+```bash
+python demo.py
+```
+---
+
+## 7. Additional Notes
 
 - **GPU**: To use GPU, ensure your device has the appropriate `CUDA` and `cuDNN` versions installed.
 - **CUDA_VISIBLE_DEVICES**: Make sure this environment variable is set in `run.sh` to specify the GPU if your machine has multiple GPUs.
@@ -74,7 +86,7 @@ The `run.sh` script will execute `main.py` with preset arguments and begin the t
 
 ---
 
-## 7. Contact
+## 8. Contact
 For questions or issues with the project, please contact the project manager via email: hoangquan5824@gmail.com
 ---
 
