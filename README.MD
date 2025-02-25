@@ -91,8 +91,28 @@ python demo.py
 
 ---
 
-## 8. Contact
+## 8. References
+
+Below are some resources related to emotion recognition and deep learning:
+
+1. Daeha Kim, Byung Cheol Song. "Optimal Transport-based Identity Matching for Identity-invariant Facial Expression Recognition" (2022)
+2. OpenCV Documentation: https://docs.opencv.org/
+3. TensorFlow Documentation: https://www.tensorflow.org/
+4. PyTorch Documentation: https://pytorch.org/docs/stable/index.html
+
+---
+
+## 9. Dataset Links
+
+Here are some datasets that can be used for emotion recognition:
+
+AFEW-VA: https://ibug.doc.ic.ac.uk/resources/afew-va-database/
+
+---
+
+## 10. Contact
 For questions or issues with the project, please contact the project manager via email: hoangquan5824@gmail.com
+
 ---
 
 ### Additional Explanation
@@ -101,3 +121,4 @@ For questions or issues with the project, please contact the project manager via
 - **`preprocessing.py`**: Preprocesses the image data to the required format.
 - **`split_dataset.py`**: Splits the dataset into training and validation sets.
 - **`run.sh`**: Initiates the model training process with specified arguments.
+
