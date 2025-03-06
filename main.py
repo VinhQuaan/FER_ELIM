@@ -39,7 +39,7 @@ app.add_argument("--lstm_hidden_dim", type=int, default=512, help='Hidden dimens
 app.add_argument("--lstm_layer_dim", type=int, default=2, help='Depth of LSTM layer.')
 app.add_argument("--lstm_output_dim", type=int, default=64, help='Ouput dimension of LSTM.')
 app.add_argument("--mode", type=str, default='all', help='LSTM mode (all or last).')
-app.add_argument("--num_epochs", type=int, default=10, help='Number of dataset iterations.')
+app.add_argument("--num_epochs", type=int, default=100, help='Number of dataset iterations.')
 args = app.parse_args()
 
 
@@ -321,6 +321,7 @@ if __name__ == "__main__":
     
     current_dir  = os.getcwd()
     current_time = strftime("%Y-%m-%d_%H:%M:%S", gmtime())
+    current_time = current_time.replace(":", "-")
 
     if args.model == 'alexnet':
         with open(current_dir+'/log/'+current_time+'.txt', 'w') as f:
@@ -396,9 +397,9 @@ if __name__ == "__main__":
     #------------------
     # Load pretrained w
     #------------------
-    encoder.load_state_dict(torch.load('./weights/enc2.t7'), strict=False)
-    regressor.load_state_dict(torch.load('./weights/reg2.t7'), strict=False)
-    ERM_FC.load_state_dict(torch.load('./weights/header2.t7'), strict=False)
+    # encoder.load_state_dict(torch.load('./weights/enc2.t7'), strict=False)
+    # regressor.load_state_dict(torch.load('./weights/reg2.t7'), strict=False)
+    # ERM_FC.load_state_dict(torch.load('./weights/header2.t7'), strict=False)
 
     #------------------
     # Optimizer setting
