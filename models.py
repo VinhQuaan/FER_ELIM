@@ -9,7 +9,6 @@ import pretrainedmodels.utils as utils
 from fabulous.color import fg256
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-
 #alexnet = pretrainedmodels.__dict__['alexnet'](num_classes=1000, pretrained=None).cuda()
 #resnet  = pretrainedmodels.__dict__['resnet18'](num_classes=1000, pretrained=None).cuda()
 alexnet = pretrainedmodels.__dict__['alexnet'](num_classes=1000, pretrained='imagenet').cuda()
@@ -160,8 +159,40 @@ def load_ERM_FC(erm_input_dim, erm_output_dim):
 
 
 if __name__ == "__main__":
-
     from pytorch_model_summary import summary
-    print(fg256("cyan", summary(Encoder_AL(), torch.ones_like(torch.empty(1, 3, 255, 255)).cuda(), show_input=True)))
-    print(fg256("orange", summary(Regressor_AL(), torch.ones_like(torch.empty(1, 256, 6, 6)), show_input=True)))
-    print(fg256("yellow", "ERM_FC", summary(ERM_FC(64, 2), torch.ones_like(torch.empty(10, 64)), show_input=True)))
+
+    # Encoder_AL test
+    print(fg256("cyan", summary(
+        Encoder_AL().to(device),
+        torch.ones_like(torch.empty(1, 3, 255, 255)).to(device),
+        show_input=True
+    )))
+
+    # Regressor_AL test
+    print(fg256("orange", summary(
+        Regressor_AL(1).to(device),
+        torch.ones_like(torch.empty(1, 256 * 6 * 6)).to(device), 
+        show_input=True
+    )))
+
+    # ERM_FC test
+    print(fg256("yellow", "ERM_FC", summary(
+        ERM_FC(64, 2).to(device),
+        torch.ones_like(torch.empty(10, 64)).to(device), 
+        show_input=True
+    )))
+
+    # Encoder_R18 test
+    print(fg256("magenta", summary(
+        Encoder_R18().to(device),
+        torch.ones_like(torch.empty(1, 3, 255, 255)).to(device), 
+        show_input=True
+    )))
+
+    # Regressor_R18 test
+    print(fg256("blue", summary(
+        Regressor_R18(1).to(device),
+        torch.ones_like(torch.empty(1, 1000)).to(device), 
+        show_input=True
+    )))
+
